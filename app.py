@@ -3,9 +3,6 @@ from dash import Dash, dcc, html, Input, Output
 import pandas as pd
 import datetime as dt
 
-
-#today = '{}'.format(dt.date.today())
-
 alt.data_transformers.disable_max_rows()
 
 df = pd.read_csv('owid-covid-data.csv')
@@ -117,6 +114,8 @@ app.layout = html.Div([
         html.Div(id='slider-output-container1')
                     
 ],  style={'border-width': '0', 'width': '60%', 'backgroundColor': 'white'})
+
+server = app.server
 
 @app.callback(
     Output('scatter', 'srcDoc'),
